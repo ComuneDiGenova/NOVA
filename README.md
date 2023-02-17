@@ -40,6 +40,7 @@ Documentazione allegata:
 
 L'applicazione è stata realizzata come customizzazione del CMS Open Source Drupal versione 9.
 Il funzionamento è stato verificato e testato con successo sul seguente ambiente:
+* [CMS Drupal 9](https://www.drupal.org)
 * Sistema operativo Linux Ubuntu 22.04 LTS
 * Web Server Apache 2.4
 * PHP 7.4
