@@ -31,9 +31,9 @@ Le principali cartelle/files usati dal repository sono
 Documentazione allegata:
 
 * [Modello database](./doc/nova_database_schema.md)
-* [Manuale utente amministratore](./doc/ManualeUtenteAmministratore.md)
-* [Manuale utente accreditato](./doc/ManualeUtenteAccreditati.md)
-* [Manuale utente accesso libero](./doc/ManualeUtenteAccessoLibero.md)
+* [Manuale utente amministratore portale](./doc/Manuale utente - NOVA_Area utente amministratore portale.pdf)
+* [Manuale utente amministratore](./doc/Manuale utente - NOVA_Area utente amministratore.pdf)
+* [Manuale utente accesso libero](./doc/Manuale utente - NOVA_Area utente impresa.pdf)
 
 
 ## System requirements
