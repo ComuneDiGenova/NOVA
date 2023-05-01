@@ -33,7 +33,8 @@ Documentazione allegata:
 * [Modello database](./doc/nova_database_schema.md)
 * [Manuale utente amministratore portale](./doc/Manuale utente - NOVA_Area utente amministratore portale.pdf)
 * [Manuale utente amministratore](./doc/Manuale utente - NOVA_Area utente amministratore.pdf)
-* [Manuale utente accesso libero](./doc/Manuale utente - NOVA_Area utente impresa.pdf)
+* [Manuale utente impresa](./doc/Manuale utente - NOVA_Area utente stakeholder.pdf)
+* [Manuale utente impresa](./doc/Manuale utente - NOVA_Area utente impresa.pdf)
 
 
 ## System requirements
