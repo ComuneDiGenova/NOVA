@@ -78,4 +78,6 @@ Il soggetto detentore del software è il Comune di Genova
 ## Contatti
 
 * Amministrazione proprietaria: Comune di Genova
-* Contatto e-mail referente di progetto (per segnalazioni e richiesta informazioni): [gestionesistemi@comune.genova.it](mailto:gestionesistemi@comune.genova.it)
+* Soggetto incaricato al mantenimento: Liguria Digitale spa, BBS srl
+* Contatto e-mail referente di progetto (per segnalazioni e richiesta informazioni): [Fulvia Campello](mailto:f.campello@liguriadigitale.it), [Davide Bonomo](mailto:davide.bonomo@bbsitalia.com)
+* Contatto e-mail presso l'amministrazione: [gestionesistemi@comune.genova.it](mailto:gestionesistemi@comune.genova.it)
