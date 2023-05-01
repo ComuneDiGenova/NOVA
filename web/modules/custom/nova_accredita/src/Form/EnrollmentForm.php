@@ -406,14 +406,14 @@ In ogni caso lei ha sempre diritto di proporre reclamo al Garante per la Protezi
         if(!empty($comune)){
             $properties['name'] = $comune;
             $properties['vid'] = 'regioni_comuni';
-            $terms = \Drupal::entityManager()->getStorage('taxonomy_term')->loadByProperties($properties);
+            $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties($properties);
 
 //            dump($terms);
             if(!empty($terms)){
                 $term = reset($terms);
                 $term_id = (int) $term->id();
                 if( !empty($term->id()) && is_numeric($term_id) ){
-                    $parent = \Drupal::entityManager()->getStorage('taxonomy_term')->loadParents($term_id);
+                    $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($term_id);
                     $parent = reset($parent);
 
                     if(!empty($parent) && $parent->id()){
@@ -840,7 +840,7 @@ Verrai contattato dall’utente amministratore.';
     {
         $node->uid = $this->currentUser()->id();
         $node->langcode = 'it';
-        $node->setPublished(false);
+        $node->setUnpublished();
         $node->save();
 
         return $node->id();

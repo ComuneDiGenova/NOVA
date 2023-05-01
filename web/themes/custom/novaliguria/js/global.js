@@ -44,8 +44,10 @@ function sort_func(a, b) {
                 //console.log(hash);
                 $('#myTab a[href="#' + hash[1] + '"]').tab("show");
                 url = location.href.replace(/\/#/, "#");
-                if (document.getElementById("wizard-tab")) document.getElementById("wizard-tab").scrollIntoView( {behavior: "smooth" });
-                else if (document.getElementsByClassName("tab-content").length>0) document.getElementsByClassName("tab-content")[0].scrollIntoView( {behavior: "smooth" });
+                if (document.getElementById("wizard-tab"))
+                    document.getElementById("wizard-tab").scrollIntoView({behavior: "smooth"});
+                else if (document.getElementsByClassName("tab-content").length > 0)
+                    document.getElementsByClassName("tab-content")[0].scrollIntoView({behavior: "smooth"});
                 //history.replaceState(null, null, url);
                 // setTimeout(() => {
                 //     $(window).scrollTop(0);
@@ -60,13 +62,15 @@ function sort_func(a, b) {
                 //if (hash == "#wizard-1") {
                 //    newUrl = url.split("#")[0];
                 //} else {
-                    newUrl = url.split("#")[0] +hash;
+                newUrl = url.split("#")[0] + hash;
                 //}
-                newUrl += "/";         
+                newUrl += "/";
                 //history.replaceState(null, null, newUrl);
                 window.location.href = newUrl;
-                if (document.getElementById("wizard-tab")) document.getElementById("wizard-tab").scrollIntoView( {behavior: "smooth" });
-                else if (document.getElementsByClassName("tab-content").length>0) document.getElementsByClassName("tab-content")[0].scrollIntoView( {behavior: "smooth" });
+                if (document.getElementById("wizard-tab"))
+                    document.getElementById("wizard-tab").scrollIntoView({behavior: "smooth"});
+                else if (document.getElementsByClassName("tab-content").length > 0)
+                    document.getElementsByClassName("tab-content")[0].scrollIntoView({behavior: "smooth"});
             });
 
             //$("span").closest("ul").css({"color": "red", "border": "2px solid red"});
@@ -88,7 +92,7 @@ function sort_func(a, b) {
 
             //FACCIO APRIRE I LINK DELLE CARD DEI SERVIZI IN UN ALTRA FINESTRA PER EVITARE DI PERDERE LA RICERCA NEL WORKFLOW
             $("body.path-trova-il-tuo-servizio .box-search-service a").attr("target", "_blank");
-                                                             
+
         }
     }; //end behavior
     //a capo dopo '?'
@@ -108,43 +112,49 @@ function sort_func(a, b) {
         $(this).html($(this).html().replace('?', '?<br>'));
     });
 
-    let clona_bottoni_wizard_servizi = function() {
-        $("body.path-trova-il-tuo-servizio form div[id^=form-wrapper]").each(function() {
+    let clona_bottoni_wizard_servizi = function () {
+        $("body.path-trova-il-tuo-servizio form div[id^=form-wrapper]").each(function () {
             //CLONO E METTO SOPRA IL BOTTONE CONTINUA NEL WORKFLOW PRIMO STEP
-            if ($("fieldset.step-1:not(.btn-duplicated) legend > span",$(this)).length>0) {
-                let btn_orig = $("button[id^=edit-next]",$(this));
-                let btn_cloned = btn_orig.addClass("step-1-btn-cloned").clone(true).css("margin-bottom","20px").css("float","right");
-                $("fieldset.step-1 legend > span",$(this)).after(btn_cloned);
+            if ($("fieldset.step-1:not(.btn-duplicated) legend > span", $(this)).length > 0) {
+                let btn_orig = $("button[id^=edit-next]", $(this));
+                let btn_cloned = btn_orig.addClass("step-1-btn-cloned").clone(true).css("margin-bottom", "20px").css("float", "right");
+                $("fieldset.step-1 legend > span", $(this)).after(btn_cloned);
                 $("fieldset.step-1", $(this)).addClass("btn-duplicated");
-                $(".fieldset-wrapper .form-content", $(this)).each(function() {
-                    $(this).click(function() {
-                        setTimeout(function() {
-                            if (btn_orig.is(":visible")) btn_cloned.show(); else btn_cloned.hide();
-                        }, 50);        
+                $(".fieldset-wrapper .form-content", $(this)).each(function () {
+                    $(this).click(function () {
+                        setTimeout(function () {
+                            if (btn_orig.is(":visible"))
+                                btn_cloned.show();
+                            else
+                                btn_cloned.hide();
+                        }, 50);
                     });
                 });
             }
             //CLONO E METTO SOPRA IL BOTTONE CONTINUA E IL BOTTONE INDIETRO NEL WORKFLOW SECONDO STEP
-            if ($("fieldset.step-2:not(.btn-duplicated) legend > span",$(this)).length>0) {
-                let btn_orig = $("button[id^=edit-finish]",$(this));
-                let btn_cloned = btn_orig.addClass("step-2-btn-cloned").clone(true).css("margin-bottom","30px");
-                $("fieldset.step-2 legend > span",$(this)).after(btn_cloned);
+            if ($("fieldset.step-2:not(.btn-duplicated) legend > span", $(this)).length > 0) {
+                let btn_orig = $("button[id^=edit-finish]", $(this));
+                let btn_cloned = btn_orig.addClass("step-2-btn-cloned").clone(true).css("margin-bottom", "30px");
+                $("fieldset.step-2 legend > span", $(this)).after(btn_cloned);
                 $("fieldset.step-2", $(this)).addClass("btn-duplicated");
-                $(".fieldset-wrapper .form-content", $(this)).each(function() {
-                    $(this).click(function() {
-                        setTimeout(function() {
-                            if (btn_orig.is(":visible")) btn_cloned.show(); else btn_cloned.hide();
-                        }, 50);        
+                $(".fieldset-wrapper .form-content", $(this)).each(function () {
+                    $(this).click(function () {
+                        setTimeout(function () {
+                            if (btn_orig.is(":visible"))
+                                btn_cloned.show();
+                            else
+                                btn_cloned.hide();
+                        }, 50);
                     });
                 });
-                let btn_indietro_cloned = $("div[id^=edit-actions]",$(this)).clone(true);
-                $("fieldset.step-2 legend",$(this)).before(btn_indietro_cloned);
+                let btn_indietro_cloned = $("div[id^=edit-actions]", $(this)).clone(true);
+                $("fieldset.step-2 legend", $(this)).before(btn_indietro_cloned);
                 $("button[id^=edit-finish]", btn_indietro_cloned).remove();
             }
             //CLONO E METTO SOPRA IL BOTTONE INDIETRO NEL WORKFLOW SECONDO STEP
-            if ($("fieldset[id^=edit-service-typology]:not(.btn-duplicated) legend",$(this)).length>0) {
+            if ($("fieldset[id^=edit-service-typology]:not(.btn-duplicated) legend", $(this)).length > 0) {
                 $("fieldset[id^=edit-service-typology]", $(this)).addClass("btn-duplicated");
-                $("fieldset[id^=edit-service-typology] legend",$(this)).before($("a[id^=edit-previous]",$(this)).clone(true).css("margin-top","0px").css("margin-bottom","0px"));
+                $("fieldset[id^=edit-service-typology] legend", $(this)).before($("a[id^=edit-previous]", $(this)).clone(true).css("margin-top", "0px").css("margin-bottom", "0px"));
             }
         });
 
@@ -221,65 +231,65 @@ function sort_func(a, b) {
 
     $(document).ready(function () {
 
-    //GESTIONE BREADCRUMB PERSONALIZZATI SUL RUOLO
-    // window.setTimeout(function() {
-    //     $("body.page-view-management-annunci.role-administrator #block-breadcrumbs-2 li:nth-child(3)").each(function() {
-    //         $(this).html($(this).html().replace("Management Annunci","Gestione Annunci"));
-    //     });
-    window.setTimeout(function() {
-        //ADMIN
-        $("body.node--type-avviso.role-administrator #block-breadcrumbs-2 li:nth-child(2), body.node--type-avviso.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(2)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/management-annunci">Annunci</a></li>');
-        });
-        $("body.node-richiesta.role-administrator #block-breadcrumbs-2 li:nth-child(1), body.node-richiesta.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(1)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/management-richieste-servizi">Richieste Servizi</a></li>');
-        });
-        $("body.node--type-richiesta-spazio.role-administrator #block-breadcrumbs-2 li:nth-child(1), body.node--type-richiesta-spazio.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(1)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/management-richieste-spazi">Richieste Spazi</a></li>');
-        });
-        $("body.node--type-richiesta-nuovi-servizi.role-administrator #block-breadcrumbs-2 li:nth-child(1), body.node--type-richiesta-nuovi-servizi.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(1)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/management-richieste-nuovi-servizi">Richieste Nuovi Servizi</a></li>');
-        });
+        //GESTIONE BREADCRUMB PERSONALIZZATI SUL RUOLO
+        // window.setTimeout(function() {
+        //     $("body.page-view-management-annunci.role-administrator #block-breadcrumbs-2 li:nth-child(3)").each(function() {
+        //         $(this).html($(this).html().replace("Management Annunci","Gestione Annunci"));
+        //     });
+        window.setTimeout(function () {
+            //ADMIN
+            $("body.node--type-avviso.role-administrator #block-breadcrumbs-2 li:nth-child(2), body.node--type-avviso.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(2)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/management-annunci">Annunci</a></li>');
+            });
+            $("body.node-richiesta.role-administrator #block-breadcrumbs-2 li:nth-child(1), body.node-richiesta.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(1)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/management-richieste-servizi">Richieste Servizi</a></li>');
+            });
+            $("body.node--type-richiesta-spazio.role-administrator #block-breadcrumbs-2 li:nth-child(1), body.node--type-richiesta-spazio.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(1)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/management-richieste-spazi">Richieste Spazi</a></li>');
+            });
+            $("body.node--type-richiesta-nuovi-servizi.role-administrator #block-breadcrumbs-2 li:nth-child(1), body.node--type-richiesta-nuovi-servizi.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(1)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/management-richieste-nuovi-servizi">Richieste Nuovi Servizi</a></li>');
+            });
 
-        //UTENTE_NOVA
-        // $("body.node--type-avviso.role-utente_nova #block-breadcrumbs-2 li:nth-child(2), body.node--type-avviso.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(2)").each(function() {
-        //     $(this).after('<li class="breadcrumb-item"><a href="/annunci-impresa">Annunci</a></li>');
-        // });
-        $("body.node--type-avviso.role-utente_nova #block-breadcrumbs-2 li:nth-child(2)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/annunci-impresa">Annunci</a></li>');
-        });
-        $("body.node-richiesta.role-utente_nova #block-breadcrumbs-2 li:nth-child(1)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-servizi-impresa">Richieste Servizi</a></li>');
-        });
-        $("body.node--type-richiesta-spazio.role-utente_nova #block-breadcrumbs-2 li:nth-child(1)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-spazi-impresa">Richieste Spazi</a></li>');
-        });
-        $("body.node--type-richiesta-nuovi-servizi.role-utente_nova #block-breadcrumbs-2 li:nth-child(1)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-nuovi-servizi-impresa">Richieste Nuovi Servizi</a></li>');
-        });
+            //UTENTE_NOVA
+            // $("body.node--type-avviso.role-utente_nova #block-breadcrumbs-2 li:nth-child(2), body.node--type-avviso.role-amministratore_portale #block-breadcrumbs-2 li:nth-child(2)").each(function() {
+            //     $(this).after('<li class="breadcrumb-item"><a href="/annunci-impresa">Annunci</a></li>');
+            // });
+            $("body.node--type-avviso.role-utente_nova #block-breadcrumbs-2 li:nth-child(2)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/annunci-impresa">Annunci</a></li>');
+            });
+            $("body.node-richiesta.role-utente_nova #block-breadcrumbs-2 li:nth-child(1)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-servizi-impresa">Richieste Servizi</a></li>');
+            });
+            $("body.node--type-richiesta-spazio.role-utente_nova #block-breadcrumbs-2 li:nth-child(1)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-spazi-impresa">Richieste Spazi</a></li>');
+            });
+            $("body.node--type-richiesta-nuovi-servizi.role-utente_nova #block-breadcrumbs-2 li:nth-child(1)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-nuovi-servizi-impresa">Richieste Nuovi Servizi</a></li>');
+            });
 
-        //STAKEHOLDER
-        $("body.node-richiesta.role-stakholder #block-breadcrumbs-2 li:nth-child(1)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-servizi-stakeholder">Richieste Servizi</a></li>');
-        });
-        $("body.node--type-richiesta-spazio.role-stakholder #block-breadcrumbs-2 li:nth-child(1)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-spazi-stakeholder">Richieste Spazi</a></li>');
-        });
-        $("body.node--type-richiesta-nuovi-servizi.role-stakholder #block-breadcrumbs-2 li:nth-child(1)").each(function() {
-            $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-nuovi-servizi-stakeholder">Richieste Nuovi Servizi</a></li>');
-        });
-        
-        //AGGIUNGO IL BOTTONE VAI AL CARRELLO DOPO IL BOTTONE RIMUOVI NELLA PAGINA DEL SERVIZIO
-        $("body.node--type-servizio button.flag-wishlist-servizi > a[href^='/flag/unflag/']").each(function() {
-            $(this).parent().after($('<div class="text-center info-contact" style="margin-left: 30px;"><a href="/carrello" class="btn">VAI AL CARRELLO</a></div>'));
-        });
+            //STAKEHOLDER
+            $("body.node-richiesta.role-stakholder #block-breadcrumbs-2 li:nth-child(1)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-servizi-stakeholder">Richieste Servizi</a></li>');
+            });
+            $("body.node--type-richiesta-spazio.role-stakholder #block-breadcrumbs-2 li:nth-child(1)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-spazi-stakeholder">Richieste Spazi</a></li>');
+            });
+            $("body.node--type-richiesta-nuovi-servizi.role-stakholder #block-breadcrumbs-2 li:nth-child(1)").each(function () {
+                $(this).after('<li class="breadcrumb-item"><a href="/user">Area Utente</a></li><li class="breadcrumb-item"><a href="/richieste-nuovi-servizi-stakeholder">Richieste Nuovi Servizi</a></li>');
+            });
 
-    }, 100);
- 
+            //AGGIUNGO IL BOTTONE VAI AL CARRELLO DOPO IL BOTTONE RIMUOVI NELLA PAGINA DEL SERVIZIO
+            $("body.node--type-servizio button.flag-wishlist-servizi > a[href^='/flag/unflag/']").each(function () {
+                $(this).parent().after($('<div class="text-center info-contact" style="margin-left: 30px;"><a href="/carrello" class="btn">VAI AL CARRELLO</a></div>'));
+            });
+
+        }, 100);
 
 
-    if (window.location.hash != "") {
-            $('a[href="' + window.location.hash.replace("/","") + '"] button').click();
+
+        if (window.location.hash != "") {
+            $('a[href="' + window.location.hash.replace("/", "") + '"] button').click();
         }
 
         window.nascondi_servizi = function (obj, table) {
@@ -382,57 +392,63 @@ function sort_func(a, b) {
 
         //NASCONDO RIGHE SENZA MODIFICHE ALLE CATEGORIE DEL SERVIZIO NELLA VISTA track-servizi
         $("body.path-track-servizi #block-novaliguria-content table th#view-vid-table-column, body.path-track-servizi #block-novaliguria-content table > tbody > tr td.views-field-vid").hide();
-        var utenti = new Set(); $("body.path-track-servizi #block-novaliguria-content table > tbody > tr > td.views-field-revision-uid > a").each(function() { utenti.add($(this).attr("href")); });
+        var utenti = new Set();
+        $("body.path-track-servizi #block-novaliguria-content table > tbody > tr > td.views-field-revision-uid > a").each(function () {
+            utenti.add($(this).attr("href"));
+        });
 
-        var revisioni = new Set(); $("body.path-track-servizi #block-novaliguria-content table > tbody > tr > td.views-field-vid").each(function() { revisioni.add($(this).html().trim()); });
-        
+        var revisioni = new Set();
+        $("body.path-track-servizi #block-novaliguria-content table > tbody > tr > td.views-field-vid").each(function () {
+            revisioni.add($(this).html().trim());
+        });
+
         revisioni.forEach((id_revisione) => {
-          let $last = null;
-          let actual_change = "";
-          $("body.path-track-servizi #block-novaliguria-content table > tbody > tr").each(function(index) {
-            if ($("td.views-field-vid", $(this)).html().trim() == id_revisione) {
-                //SCRIVO PER TUTTE LE RIGHE "AGGIORNAMENTO"                
-                if (actual_change == $("td.views-field-field-categorie-del-servizio-revision-id", $(this)).html()) { 
-                    $(this).hide(); 
-                    console.log("nascosto riga: " + (index+1)); 
-                }
-                else {
-                    actual_change = $("td.views-field-field-categorie-del-servizio-revision-id", $(this)).html();
-                    $("td.views-field-title", $(this)).html($("td.views-field-title", $(this)).html() + "<br><br><b><i>AGGIORNAMENTO</i></b>");
-                    $last = $("td.views-field-title", $(this));
-                }
-            }
-          });
-          if ($last) $last.html($last.html().replace("<br><br><b><i>AGGIORNAMENTO</i></b>","<br><br><b><i>INSERIMENTO</i></b>"));
-        }); 
-        
-        window.setTimeout(function() {
-        //AGGIUNGO LINK DI NAVIGAZIONE AL CATALOGO PRODOTTI PER LE AZIENDE CHE HANNO PERMESSO MODIFICA
-            $("body.node--type-catalogo-prodotti-progetti-tecno main#content > section > nav > ul.nav-tabs").each(function() {
-                if ($("> li > a[href*='/edit']", $(this)).length>0) {
-                    $(this).append("<li class='nav-item'><a href='/catalogo-impresa' class='nav-link' style='background-color: #FAB72B; border-color: #FAB72B; color:#fff;margin-left:15px;'>I miei Prodotti/Servizi, Progetti e Tecnologie</a></li>").append("<li class='nav-item'><a href='/node/add/catalogo_prodotti_progetti_tecno' style='background-color: #FAB72B; border-color: #FAB72B;color:#fff;margin-left:5px;' class='nav-link'>Aggiungi</a></li>");
-                }            
-            });  
-        //TOLGO LA TAB ELIMINA DAL MENU CONTESTUALE DISPONIBILE NELLA VISUALIZZAZIONE DI UN CONTENUTO
-            $("nav > ul.nav-tabs > li > a[href*='/delete']").each(function() {
-                $(this).parent().hide();
-            });
-        //PERSONALIZZO IL MESSAGGIO DI ACCESSO NEGATO SE PROVIENE DA UNA PAGINA SPECIFICA
-            $(".alert-danger").each(function() {
-                if ($(this).html().includes("Devi autenticarti su NOVA con il tuo SPID")) {
-                    let location_decoded = location.href.replace("%3F","?").replace("%3D","=").replace("%3F","?").replace("%3D","=").replace("%3F","?").replace("%3D","=").replace("?destination=/","?destination=");
-                    if (location_decoded.includes("?destination=node/add/richiesta_spazio?display=azienda") || location_decoded.includes("?destination=nova/richiesta-accreditamento") || location_decoded.includes("?destination=node/add/richiesta_spazio?display=azienda") || location_decoded.includes("?destination=node/add/richiesta_nuovi_servizi?display=azienda") || location_decoded.includes("?destination=node/add/richiesta?display=azienda")) {
-                        $(this).html($(this).html().replace("Devi autenticarti su NOVA con il tuo SPID","Per inviare la richiesta devi autenticarti su NOVA con il tuo SPID"));
+            let $last = null;
+            let actual_change = "";
+            $("body.path-track-servizi #block-novaliguria-content table > tbody > tr").each(function (index) {
+                if ($("td.views-field-vid", $(this)).html().trim() == id_revisione) {
+                    //SCRIVO PER TUTTE LE RIGHE "AGGIORNAMENTO"                
+                    if (actual_change == $("td.views-field-field-categorie-del-servizio-revision-id", $(this)).html()) {
+                        $(this).hide();
+                        console.log("nascosto riga: " + (index + 1));
+                    } else {
+                        actual_change = $("td.views-field-field-categorie-del-servizio-revision-id", $(this)).html();
+                        $("td.views-field-title", $(this)).html($("td.views-field-title", $(this)).html() + "<br><br><b><i>AGGIORNAMENTO</i></b>");
+                        $last = $("td.views-field-title", $(this));
                     }
                 }
-            });  
+            });
+            if ($last)
+                $last.html($last.html().replace("<br><br><b><i>AGGIORNAMENTO</i></b>", "<br><br><b><i>INSERIMENTO</i></b>"));
+        });
+
+        window.setTimeout(function () {
+            //AGGIUNGO LINK DI NAVIGAZIONE AL CATALOGO PRODOTTI PER LE AZIENDE CHE HANNO PERMESSO MODIFICA
+            $("body.node--type-catalogo-prodotti-progetti-tecno main#content > section > nav > ul.nav-tabs").each(function () {
+                if ($("> li > a[href*='/edit']", $(this)).length > 0) {
+                    $(this).append("<li class='nav-item'><a href='/catalogo-impresa' class='nav-link' style='background-color: #FAB72B; border-color: #FAB72B; color:#fff;margin-left:15px;'>I miei Prodotti/Servizi, Progetti e Tecnologie</a></li>").append("<li class='nav-item'><a href='/node/add/catalogo_prodotti_progetti_tecno' style='background-color: #FAB72B; border-color: #FAB72B;color:#fff;margin-left:5px;' class='nav-link'>Aggiungi</a></li>");
+                }
+            });
+            //TOLGO LA TAB ELIMINA DAL MENU CONTESTUALE DISPONIBILE NELLA VISUALIZZAZIONE DI UN CONTENUTO
+            $("nav > ul.nav-tabs > li > a[href*='/delete']").each(function () {
+                $(this).parent().hide();
+            });
+            //PERSONALIZZO IL MESSAGGIO DI ACCESSO NEGATO SE PROVIENE DA UNA PAGINA SPECIFICA
+            $(".alert-danger").each(function () {
+                if ($(this).html().includes("Devi autenticarti su NOVA con il tuo SPID")) {
+                    let location_decoded = location.href.replace("%3F", "?").replace("%3D", "=").replace("%3F", "?").replace("%3D", "=").replace("%3F", "?").replace("%3D", "=").replace("?destination=/", "?destination=");
+                    if (location_decoded.includes("?destination=node/add/richiesta_spazio?display=azienda") || location_decoded.includes("?destination=nova/richiesta-accreditamento") || location_decoded.includes("?destination=node/add/richiesta_spazio?display=azienda") || location_decoded.includes("?destination=node/add/richiesta_nuovi_servizi?display=azienda") || location_decoded.includes("?destination=node/add/richiesta?display=azienda")) {
+                        $(this).html($(this).html().replace("Devi autenticarti su NOVA con il tuo SPID", "Per inviare la richiesta devi autenticarti su NOVA con il tuo SPID"));
+                    }
+                }
+            });
             $('select option:contains("- None -")').text("- Altra Impresa -");
-        //IMPOSTO IL LINK CORRETTO SUL BOTTONE bottone-modifica-delegati-stakeholder NELL'AREA UTENTE DELLO STAKEHOLDER
-            $("#bottone-modifica-delegati-stakeholder").each(function() {
+            //IMPOSTO IL LINK CORRETTO SUL BOTTONE bottone-modifica-delegati-stakeholder NELL'AREA UTENTE DELLO STAKEHOLDER
+            $("#bottone-modifica-delegati-stakeholder").each(function () {
                 $(this).attr("href", $("nav > ul.nav-tabs > li > a[href$='/edit']").attr("href"));
             });
         }, 300);
-               
+
     });
     Drupal.behaviors.vetrina_aziende = {
         attach: function (context, settings) {
@@ -453,49 +469,49 @@ function sort_func(a, b) {
      * @type {{attach: Drupal.behaviors.autocompleteReferenceEntityId.attach}}
      */
     /*
-    Drupal.behaviors.autocompleteReferenceEntityId = {
-        attach: function (context) {
-            // Remove reference IDs for autocomplete elements on init.
-            $('.form-autocomplete', context).once('replaceReferenceIdOnInit').each(function () {
-                let splitValues = (this.value && this.value !== 'false') ?
-                    Drupal.autocomplete.splitValues(this.value) : [];
-
-                if (splitValues.length > 0) {
-                    let labelValues = [];
-                    for (let i in splitValues) {
-                        let value = splitValues[i].trim();
-                        let entityIdMatch = value.match(/\s*\((.*?)\)$/);
-                        if (entityIdMatch) {
-                            labelValues[i] = value.replace(entityIdMatch[0], '');
-                        }
-                    }
-
-                    if (labelValues.length > 0) {
-                        $(this).data('real-value', splitValues.join(', '));
-                        this.value = labelValues.join(', ');
-                    }
-                }
-            });
-        }
-    };
-
-    let autocomplete = Drupal.autocomplete.options;
-    autocomplete.originalValues = [];
-    autocomplete.labelValues = [];
-
-    //add custom handler
-    autocomplete.select = function (event, ui) {
-        autocomplete.labelValues = Drupal.autocomplete.splitValues(event.target.value);
-        autocomplete.labelValues.pop();
-        autocomplete.labelValues.push(ui.item.label);
-        autocomplete.originalValues.push(ui.item.value);
-
-        $(event.target).data('real-value', autocomplete.originalValues.join(', '));
-        event.target.value = autocomplete.labelValues.join(', ');
-
-        return false;
-    }
-    /**/
+     Drupal.behaviors.autocompleteReferenceEntityId = {
+     attach: function (context) {
+     // Remove reference IDs for autocomplete elements on init.
+     $('.form-autocomplete', context).once('replaceReferenceIdOnInit').each(function () {
+     let splitValues = (this.value && this.value !== 'false') ?
+     Drupal.autocomplete.splitValues(this.value) : [];
+     
+     if (splitValues.length > 0) {
+     let labelValues = [];
+     for (let i in splitValues) {
+     let value = splitValues[i].trim();
+     let entityIdMatch = value.match(/\s*\((.*?)\)$/);
+     if (entityIdMatch) {
+     labelValues[i] = value.replace(entityIdMatch[0], '');
+     }
+     }
+     
+     if (labelValues.length > 0) {
+     $(this).data('real-value', splitValues.join(', '));
+     this.value = labelValues.join(', ');
+     }
+     }
+     });
+     }
+     };
+     
+     let autocomplete = Drupal.autocomplete.options;
+     autocomplete.originalValues = [];
+     autocomplete.labelValues = [];
+     
+     //add custom handler
+     autocomplete.select = function (event, ui) {
+     autocomplete.labelValues = Drupal.autocomplete.splitValues(event.target.value);
+     autocomplete.labelValues.pop();
+     autocomplete.labelValues.push(ui.item.label);
+     autocomplete.originalValues.push(ui.item.value);
+     
+     $(event.target).data('real-value', autocomplete.originalValues.join(', '));
+     event.target.value = autocomplete.labelValues.join(', ');
+     
+     return false;
+     }
+     /**/
 
 })(jQuery, Drupal);
 
@@ -515,7 +531,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $(window).resize(function () {
 //spazi homepage
-        if (window.matchMedia('(min-width: 992px)').matches) {
+        if (window.matchMedia('(min-width: 360px)').matches) {
             var maxHeight = Math.max.apply(null, jQuery(".view-spazi-homepage .field-wrapper-spazi").map(function () {
                 return jQuery(this).height();
             }).get());
@@ -523,7 +539,7 @@ $(document).ready(function () {
         } else {
             jQuery(".view-spazi-homepage .spazi-content .field-wrapper-spazi").css("min-height", 'inherit');
         }
-          if (window.matchMedia('(min-width: 992px)').matches) {
+        if (window.matchMedia('(min-width: 992px)').matches) {
             var maxHeight = Math.max.apply(null, jQuery(".view-spazi-homepage .field-wrapper-spazi h3").map(function () {
                 return jQuery(this).height();
             }).get());
@@ -531,7 +547,7 @@ $(document).ready(function () {
         } else {
             jQuery(".view-spazi-homepage .spazi-content .field-wrapper-spazi h3").css("min-height", 'inherit');
         }
-           if (window.matchMedia('(min-width: 992px)').matches) {
+        if (window.matchMedia('(min-width: 992px)').matches) {
             var maxHeight = Math.max.apply(null, jQuery(".view-spazi-homepage .slide__description").map(function () {
                 return jQuery(this).height();
             }).get());
@@ -540,7 +556,7 @@ $(document).ready(function () {
             jQuery(".view-spazi-homepage .slide__description").css("min-height", 'inherit');
         }
     }).resize();
-    
+
 //faccio aprire tutti i link all'interno dell'attività dell'impresa in un'altra finestra
     $("#TabContentImpresa #attivita a").attr("target", "_blank");
 //rimuovo il protocollo dal testo di ogni link nell'impresa
@@ -561,11 +577,13 @@ $(document).ready(function () {
     $("body.page-user-login .user-login-form").each(function () {
         var parameters = location.href.substring(location.href.indexOf("destination"));
         $(this).after('<div class="accedi-con-spid"><a href="/samllogin?' + parameters + '"><button class="btn btn-primary">Accedi con SPID</button></a></div>');
+        if (location.href.includes("?staff")) {
+            $("body.page-user-login .user-login-form").show();
+        } else {
+            $("body.page-user-login .user-login-form").hide();
+            $("body.page-user-login nav.tabs").hide();
+        }
     });
-    if (location.href.endsWith("user/login?staff")) {
-        $("body.page-user-login .user-login-form").show();
-    }
-
 
     if ($("#edit-field-nazione").length >= 1) {
 
@@ -603,29 +621,29 @@ $(document).ready(function () {
     }
 
 //selezione della prima impresa nel form di richiesta
-    if ($("form#node-richiesta-nuovi-servizi-form, form#node-richiesta-form, form#node-richiesta-spazio-form, form#node-avviso-form").length>0) {
+    if ($("form#node-richiesta-nuovi-servizi-form, form#node-richiesta-form, form#node-richiesta-spazio-form, form#node-avviso-form").length > 0) {
         $("#edit-field-ragione-sociale option:eq(0)").appendTo($("#edit-field-ragione-sociale"));
         console.log('nascondo');
         $(".field--name-field-denominazione").hide();
         $(".field--name-field-codice-fiscale-impresa").hide();
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             console.log('nascondo dopo timeout');
             $(".field--name-field-denominazione").hide();
             $(".field--name-field-codice-fiscale-impresa").hide();
         }, 100);
-        $("#edit-field-tipo-richiedente-privato, #edit-field-tipo-richiedente-libero-professionista").click(function() {
+        $("#edit-field-tipo-richiedente-privato, #edit-field-tipo-richiedente-libero-professionista").click(function () {
             $("#edit-field-ragione-sociale").val('_none');
             $(".field--name-field-denominazione").hide();
             $(".field--name-field-codice-fiscale-impresa").hide();
         });
-        $("#edit-field-tipo-richiedente-impresa").click(function() {
+        $("#edit-field-tipo-richiedente-impresa").click(function () {
             $("#edit-field-ragione-sociale").val($("#edit-field-ragione-sociale option:eq(0)").attr('value'));
             console.log($("#edit-field-ragione-sociale").val());
             if ($("#edit-field-ragione-sociale").val() == '_none') {
                 console.log('mostro');
                 $(".field--name-field-denominazione").show();
                 $(".field--name-field-codice-fiscale-impresa").show();
-                window.setTimeout(function() {
+                window.setTimeout(function () {
                     console.log('mostro dopo timeout');
                     $(".field--name-field-denominazione").show();
                     $(".field--name-field-codice-fiscale-impresa").show();
@@ -634,20 +652,19 @@ $(document).ready(function () {
                 console.log('nascondo');
                 $(".field--name-field-denominazione").hide();
                 $(".field--name-field-codice-fiscale-impresa").hide();
-                window.setTimeout(function() {
+                window.setTimeout(function () {
                     console.log('nascondo dopo timeout');
                     $(".field--name-field-denominazione").hide();
                     $(".field--name-field-codice-fiscale-impresa").hide();
                 }, 100);
             }
         });
-        $("#edit-field-ragione-sociale").change(function() {
+        $("#edit-field-ragione-sociale").change(function () {
             if ($(this).val() == '_none') {
                 console.log('selezionato none: mostro');
                 $(".field--name-field-denominazione").show();
                 $(".field--name-field-codice-fiscale-impresa").show();
-            }
-            else {
+            } else {
                 console.log('non selezionato none: nascondo');
                 $(".field--name-field-denominazione").hide();
                 $(".field--name-field-codice-fiscale-impresa").hide();
@@ -655,20 +672,20 @@ $(document).ready(function () {
         });
     }
 
-    window.setTimeout(function() {
-    //CORREGGO IL LINK CONTATTACI NELLA PAGINA TERMINALE DEL WORKFLOW CHE MOSTRA TUTTI I SERVIZI INDIVIDUATI
-        $("body.path-trova-il-tuo-servizio a[href='node/add/richiesta_nuovi_servizi?display=azienda']").attr("href",'/node/add/richiesta_nuovi_servizi?display=azienda');
+    window.setTimeout(function () {
+        //CORREGGO IL LINK CONTATTACI NELLA PAGINA TERMINALE DEL WORKFLOW CHE MOSTRA TUTTI I SERVIZI INDIVIDUATI
+        $("body.path-trova-il-tuo-servizio a[href='node/add/richiesta_nuovi_servizi?display=azienda']").attr("href", '/node/add/richiesta_nuovi_servizi?display=azienda');
 
-    //COPIO IL BOTTONE SALVA L'ORDINE ANCHE IN FONDO ALLA VISTA
+        //COPIO IL BOTTONE SALVA L'ORDINE ANCHE IN FONDO ALLA VISTA
         $("body.path-management-workflow #views-form-management-workflow-page-1").append('<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper mb-3" id="edit-actions"><button data-drupal-selector="edit-save-order" type="submit" id="edit-save-order" name="op" value="Salva l\'ordine" class="button js-form-submit form-submit btn btn-primary">Salva l\'ordine</button></div>');
 
-    //INSERISCO IL BOTTONE ANNULLA A SINISTRA DEL BOTTONE SALVA NEL VISTA MANAGEMENT WORKFLOW PAGE 1
+        //INSERISCO IL BOTTONE ANNULLA A SINISTRA DEL BOTTONE SALVA NEL VISTA MANAGEMENT WORKFLOW PAGE 1
         $("body.path-management-workflow #views-form-management-workflow-page-1 #edit-actions #edit-save-order").before('<button onclick="location.reload()" id="edit-annulla" value="Annulla" class="button btn btn-primary" style="margin-right: 20px;">Annulla</button>');
     }, 200);
 
 }); //FINE DOCUMENT READY
 $(window).on('load', function () {
-$("#overlay").hide();
+    $("#overlay").hide();
 });
 
 window.onload = function () {
@@ -676,7 +693,7 @@ window.onload = function () {
     // if (url.match('#')) {
     //     $('.nav-pills a[href="#' + url.split('#')[1] + '"]').tab('show');
 
-        
+
     //     $('a[data-bs-toggle="pill"]').on("click", function () {
     //         const hash = $(this).attr("href");
     //         //console.log(hash);
@@ -693,7 +710,7 @@ window.onload = function () {
 
 };
 
-autocompleteRemoveTid = function() {
+autocompleteRemoveTid = function () {
     document.querySelectorAll(".form-autocomplete").forEach(element => {
         let val = element.value;
         const match = val.match(/\(([0-9]+)\)$/);
@@ -703,7 +720,7 @@ autocompleteRemoveTid = function() {
     });
 };
 
-autocompleteRemoveTidTimeout = function() {
+autocompleteRemoveTidTimeout = function () {
     console.log("autocompleteRemoveTidTimeout");
     autocompleteRemoveTid();
     setTimeout(autocompleteRemoveTid, 100);
@@ -746,11 +763,11 @@ autocompleteRemoveTidTimeout = function() {
         removeTid: context => {
             console.log("autocompleteRemoveTid esecuzione");
             context.querySelectorAll(".form-autocomplete").forEach(element => {
-                    let val = element.value;
-                    const match = val.match(/\(([0-9]+)\)$/);
-                    if (match) {
-                        element.value = val.replace(" " + match[0], "");
-                    }
+                let val = element.value;
+                const match = val.match(/\(([0-9]+)\)$/);
+                if (match) {
+                    element.value = val.replace(" " + match[0], "");
+                }
             });
         }
     };

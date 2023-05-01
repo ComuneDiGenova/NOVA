@@ -73,9 +73,9 @@
 
                     <!--nuovi spazi-->
                     <div class="new-wrapper">
-                        {% set view = drupal_view_result('contatori_area_admin', 'block_2')|length %}
+                        {% set view = drupal_view_result('contatori_area_admin', 'block_5')|length %}
                         {% if view > 0 %}
-                            {{ drupal_view('contatori_area_admin', 'block_2') }}
+                            {{ drupal_view('contatori_area_admin', 'block_5') }}
                         {% endif %}
                         <div class="btn btn-success mb-3 me-1"><a href="/richieste-spazi-stakeholder">Spazi</a></div>
 
@@ -89,9 +89,13 @@
 
 <div class="btn btn-success mb-3 me-1"><a href="/management-spazi-stakeholder">Spazi</a></div>
 
+{#<h4>Magazine</h4>
+
+<div class="btn btn-success mb-3 me-1"><a href="/management-news-stakeholder">News</a></div>#}
+
 <h4>Manuale</h4>
 
-<div class="btn btn-success mb-3 me-1"><a href="/sites/default/files/Manuale-NOVA_ stakeholder.pdf" target="_blank">Download</a></div>
+<div class="btn btn-success mb-3 me-1"><a href="/sites/default/files/2023-03/Manuale%20utente%20-%20NOVA_Area%20utente%20stakeholder.pdf" target="_blank">Download</a></div>
 </div>
 
     {% endblock %}

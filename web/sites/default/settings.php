@@ -773,6 +773,17 @@ $databases['default']['default'] = array (
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_wwmQIG76pgLSCrN-2UoAbHaeowuBO89pgvo_nHoAEYDLYWuFhydB8ZeAu_HEksPh2td8s1A7yQ/sync';
 
+ ini_set('display_errors',0); ini_set('display_startup_errors', 0);
+ ini_set('error_reporting', E_ERROR & ~E_WARNING & ~E_PARSE & ~E_NOTICE);
+ error_reporting(E_ERROR & ~E_WARNING & ~E_PARSE & ~E_NOTICE);
+
+
+//ini_set('display_errors',0); ini_set('display_startup_errors', 0);
+//ini_set('error_reporting', E_ERROR & ~E_WARNING & ~E_PARSE & ~E_NOTICE);
+//error_reporting(E_ERROR & ~E_WARNING & ~E_PARSE & ~E_NOTICE);
+
+//$=jQuery;$(".alert-wrapper").each(function() { if ($(this).html().includes('Notice')) $(this).hide() });
+
 ini_set('memory_limit','2048M');
 ini_set('xdebug.max_nesting_level', -1); 
 ini_set('max_execution_time', 1800);

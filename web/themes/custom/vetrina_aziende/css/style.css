@@ -143,13 +143,13 @@ ul.pagination li .page-link {
     display: inline-flex;
 }
 #block-vetrina-aziende-headeruserlogin {
-    width: 51%;
+    width: 54%;
     margin-left: 15px;
     letter-spacing: -0.5px;
 }
 #block-gtranslate-2 {
-    margin-top: 8px;    
-    width: 49%;
+    margin-top: 8px;
+    width: 45%;
     margin-left: -20px;
 }
 .vetrina #page {
@@ -194,6 +194,7 @@ body.bg-green #page {
 #block-mainmenuvetrinaimprese a[title] {
     background: #1BA4AF;
 }
+#block-mainmenuvetrinaimprese a.is-active {color: #032675}
 #block-mainmenuvetrinaimprese li:last-of-type a:hover {
     color:#032675 ;
 }
@@ -340,11 +341,18 @@ body.bg-green #page {
     }
     #navbar-top .region-top-header {width: 100%}
     #navbar-top .container {
-        padding-left: 0;
+        padding: 0;
     }
     #block-vetrina-aziende-headeruserlogin {
         font-size:13px;
     }
+    .node--type-impresa .social-impresa.text-end {
+        text-align: center!important;
+    }
+    .node--type-impresa .box-info {
+            margin-bottom: 2rem;
+    }
+    #page-wrapper, body.vetrina {overflow-x: hidden;}
 }
 
 #nova-accredita-enrollment-form #edit-field-tipo-di-impresa .form-check{

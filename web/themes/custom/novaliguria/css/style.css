@@ -39,11 +39,13 @@
 
 .path-frontpage .header #navbar-main {background: #18a095!important;}
 #block-novaliguria-main-menu a {
-    color: white;
+    color: #212121;
     font-family: 'Poppins';
 }
-#block-novaliguria-main-menu a:hover {
-    color: #2c1d4c;
+#block-novaliguria-main-menu a:hover, #block-novaliguria-main-menu a.is-active, #block-novaliguria-main-menu a:focus {
+    color: white;
+    background-color: #2c1d4c;
+    text-decoration: none;
 }
 #block-topheadersearch a {
     background: url(../img/bg/bg_search.png)no-repeat center center; 
@@ -137,7 +139,7 @@ a {transition: all 0.3s ease}
     background: #fff;
     padding: 0.5rem;
 }
-}
+
 /*
 * Homepage
 */
@@ -162,10 +164,11 @@ a {transition: all 0.3s ease}
     font-size: 15px;
     color: #3F2863;
 }
+#row-formazione #ppt-button-2 { margin-bottom: 15px;}
 /*home trova il tuo servizio e aziende*/
 .homepage-header-content .servizio a {text-decoration: none;}
 #vetrina-imprese .titolo h2 {font-size: 49px;}
-
+#row-content-finanziamenti .views-element-container {margin-bottom: 50px;}
 
 /*
 * 2. Footer
@@ -311,7 +314,7 @@ a {transition: all 0.3s ease}
 }
 .list-opportunity :-ms-input-placeholder,.view-search :-ms-input-placeholder,.view-search ::placeholder,
 .list-opportunity ::placeholder {
-      color: rgba(255,255,255,0.8)!important;
+    color: rgba(255,255,255,0.8)!important;
     font-style: italic;
     opacity: 0.6;
 }
@@ -693,6 +696,9 @@ body.node-article #page {
     margin: 0 3px;
     background: lightgrey;
 }
+.slide-node .slick-dots .slick-active button {
+    background: white;
+}
 .block-magazine {
     filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
     margin-bottom: 100px;
@@ -851,8 +857,19 @@ form#views-form-management-workflow-page-1 div.table-responsive {
     #block-headeruserlogin a {
         letter-spacing: -0.8px; font-size: 13px;
     }
-    #block-headeruserlogin  { margin-left: 0;}
+    #block-headeruserlogin  { margin-left: 0; padding-right: 5px;}
+     #block-headeruserlogin a img { width: 20px; }
+      #block-headeruserlogin .content-login {width: 100%;}
+      #block-gtranslate { padding-left: 5px;}
+   
     #row-finanziamenti .titolo {font-size: 30px;}
+    .node-stakeholder .box-info {margin-bottom: 2rem;}
+    .node-stakeholder .box-info-wrapper {padding-bottom: 0;}
+    .social-impresa.text-end {
+        text-align: center!important;
+    }
+    #row-comune-genova .wrapper-content .btn-liguria.button {bottom:0;}
+   
 }
 @media (max-width: 768px) {
     .node-article .slick .media--bundle--video video {
@@ -861,15 +878,17 @@ form#views-form-management-workflow-page-1 div.table-responsive {
     .path-user #navbar-top .container {
         flex-flow: row;
     }
-   .path-user .region-top-header, .adminimal-admin-toolbar .region-top-header {
-       width: 100%;
-   }
+    .path-user .region-top-header, .adminimal-admin-toolbar .region-top-header {
+        width: 100%;
+    }
     #block-loghifooter ul {text-align: center;    padding-left: 0;}
     #block-loghifooter ul li{ padding-right:0;padding-left:0;width: 40%;}
     .site-footer .block-menu {margin-top: 5px!important;}
-   #block-logogenova  {    
-       text-align: center;
-    margin-bottom: 0.5rem;}
+    #block-logogenova  {    
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    .slide-node .slide__content img.media__element {margin: 0 auto;}
 }
 
 @media (min-width: 768px) {
@@ -877,10 +896,11 @@ form#views-form-management-workflow-page-1 div.table-responsive {
         justify-content: flex-end;
     }
     .region.region-footer-third {width: 30%}
-#block-gtranslate, #block-logogenova {
+    #block-gtranslate, #block-logogenova {
         width: auto;
-}
-.region-top-header {width: 100%}
+    }
+    .region-top-header {width: 100%}
+    #block-topheadersearch {margin-left: 5px;}
 }
 
 .node--type-stakeholder .nav-tabs#TabImpresa .nav-link, .node--type-stakeholder #TabContentImpresa .field__label {
@@ -894,14 +914,14 @@ and (orientation: portrait)  {
     }
 }
 @media (min-width: 62rem){
- .region-top-header {width: 40%}
- #block-logogenova {width: auto;    margin-right: 0.5rem;}
- #block-headeruserlogin {
-    width: 45%;    margin-left: auto;
-}
-#block-gtranslate {
-    width: 40%;
-}
+    .region-top-header {width: 40%}
+    #block-logogenova {width: auto;    margin-right: 0.5rem;}
+    #block-headeruserlogin {
+        width: 45%;    margin-left: auto;
+    }
+    #block-gtranslate {
+        width: 40%;
+    }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:portrait)
 {

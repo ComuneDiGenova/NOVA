@@ -236,10 +236,10 @@ class CompanyImport extends ControllerBase {
         foreach($lista_imprese AS $impresa) {
 
             $tipi_impresa = $impresa->get('field_tipo_di_impresa')->getValue();
-            $partita_iva_impresa = $impresa->get('field_partita_iva')->getString();
+            $partita_iva_impresa = str_pad($impresa->get('field_partita_iva')->getString(), 11, '0', STR_PAD_LEFT);
             $impresa_non_ligure = $impresa->get('field_impresa_non_ligure')->getString();
             $ragione_sociale_impresa = $impresa->get('field_ragione_sociale_')->getString();
-            $codice_fiscale_impresa = $impresa->get('field_codice_fiscale_impresa')->getString();
+            $codice_fiscale_impresa = str_pad($impresa->get('field_codice_fiscale_impresa')->getString(), 11, '0', STR_PAD_LEFT);
             $nome_impresa = $impresa->get('title')->getString();
             $impresa_is_innovativa = $this->hasTipoInnovativo($tipi_impresa);
 
@@ -288,7 +288,7 @@ class CompanyImport extends ControllerBase {
                             $impresa->set('field_log_batch', $field_log_batch);
                         }else{
                             //azienda inattiva su ARIS
-                            $new_log_batch = date('Y-m-d') . ' - 6. Imprese inattiva su Registro imprese, può essere cancellata logicamente dall’utente amministratore';
+                            $new_log_batch = date('Y-m-d') . ' - 6. Impresa inattiva su Registro Imprese, può essere cancellata logicamente dall’utente amministratore';
                             $field_log_batch = $this->addQueueLog($this->nodo_impresa, $new_log_batch);
 
                             $mail_msg = "L'impresa denominata $ragione_sociale_impresa con codice fiscale $codice_fiscale_impresa in data " . date('d/m/Y') . " non risulta più attiva banca dati delle imprese – ARIS";
@@ -301,7 +301,7 @@ class CompanyImport extends ControllerBase {
                         }
                     } else {
                         //non esiste su ARIS
-                        $new_log_batch = date('Y-m-d') . ' - 11. Imprese non presente su Registro imprese, può essere cancellata logicamente dall’utente amministratore';
+                        $new_log_batch = date('Y-m-d') . ' - 11. Impresa non presente su Registro Imprese, può essere cancellata logicamente dall’utente amministratore';
                         $field_log_batch = $this->addQueueLog($this->nodo_impresa, $new_log_batch);
 
                         $mail_msg = "L'impresa denominata $ragione_sociale_impresa con codice fiscale $codice_fiscale_impresa in data " . date('d/m/Y') . " non risulta iscritta alla banca dati delle imprese – ARIS";
@@ -311,6 +311,7 @@ class CompanyImport extends ControllerBase {
                         $impresa->set('field_log_batch', $field_log_batch);
                         //disattivo
                         $impresa->setPublished(false);
+                        
                     }
 
                     //invio la mail e salvo l'impresa
@@ -596,11 +597,12 @@ Sezione PROGETTI / PRODOTTI / TECNOLOGIE della Vetrina se desideri mettere in ev
      * Questa funzione è replicata nel file della FORM e sarebe meglio
      * averne un'unica versione
      */
+    
     private function validateAccreditamento($impresa, $isStartup){
         $stato_accreditamento = $impresa->get('field_stato_accreditamento')->getString();
         $ragione_sociale = $impresa->get('field_ragione_sociale_')->getString();
-        $piva_impresa = $impresa->get('field_partita_iva')->getString();
-        $cf_impresa = $impresa->get('field_codice_fiscale_impresa')->getString();
+        $piva_impresa = str_pad($impresa->get('field_partita_iva')->getString(), 11, '0', STR_PAD_LEFT);
+        $cf_impresa = str_pad($impresa->get('field_codice_fiscale_impresa')->getString(), 11, '0', STR_PAD_LEFT);
         $field_tipo_di_impresa = $impresa->get('field_tipo_di_impresa')->getValue();
 
         if($stato_accreditamento == $this->stati_accreditamento['richiesta_in_attesa_di_validazione']){

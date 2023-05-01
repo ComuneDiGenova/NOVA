@@ -615,12 +615,13 @@ body { overflow-x: hidden!important; background-color: #2C1D4C}
 }
 
 @media(max-width: 992px){
+    #homepage-header video { margin-top: 0!important; }
     #row-opportunita { background-color: #2C1D4C; padding: 0px 0px 0px 0px; clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%); /*margin-top: 400px;*/     padding-top: 120px; }
     #row-opportunita #views-bootstrap-gestione-opportunity-block-1  .row .slick-slide { width: 30%; margin-right: 0px; margin-left: 0px; background-color: #fff }
 
     #views-bootstrap-gestione-opportunity-block-1 .slick-list {
         padding: 0px !important;
-        margin: 0px;
+        margin: 0px 0px 1rem 0px;
         overflow: hidden;
     }
     #row-opportunita .descrizione{
@@ -630,6 +631,7 @@ body { overflow-x: hidden!important; background-color: #2C1D4C}
     #row-finanziamenti{
         position: relative !important;
         margin-bottom: -680px;
+        margin-top: 5rem;
     }
 
     #row-opportunita > img.img-fluid {
@@ -697,7 +699,7 @@ body { overflow-x: hidden!important; background-color: #2C1D4C}
     }
     #row-formazione #row-content-formazione{
         margin: 0px!important;
-        padding: 0px!Important;
+        padding: 0px 0px 2rem 0!Important;
     }
     #row-formazione #views-bootstrap-formazione-homepage-block-1 > .row > div{
         width: auto!Important;
@@ -707,6 +709,9 @@ body { overflow-x: hidden!important; background-color: #2C1D4C}
         width: 100%;
         display: block;
         flex: 0 0 100%;
+    }
+    #views-bootstrap-gestione-news-homepage-block-1 .views-field-field-image img {
+        height: auto;
     }
     #views-bootstrap-gestione-news-homepage-block-1 .views-field-field-immagine-testo{
         width: 100%!important;
@@ -785,7 +790,6 @@ body { overflow-x: hidden!important; background-color: #2C1D4C}
         font-size: 25px;
         left: 40px!important;
     }
-
 }
 
 @media(max-width: 960px){
@@ -1303,6 +1307,10 @@ body { overflow-x: hidden!important; background-color: #2C1D4C}
         padding-left: 90px !important;
         padding-right: 90px !important;
     }
+    #views-bootstrap-gestione-opportunity-block-1 .slick-track,
+    #views-bootstrap-elenco-imprese-home-block-1 .slick-track {
+        height: 100%;
+    }
 }
 
 @media(max-width: 380px){
@@ -1334,9 +1342,14 @@ body { overflow-x: hidden!important; background-color: #2C1D4C}
     #bacheca-aziende-new {margin-bottom: 80px;}
     #row-spazi .titolo {padding: 20px 50px;}
     #row-finanziamenti .descrizione {font-size: 30px;}
+    #row-content-finanziamenti .slick-dots { padding-bottom: 0; }
+    #row-content-finanziamenti .views-element-container {
+        margin-bottom: 0px!important;
+    }
     #row-formazione {margin-top: 75px;}
     .view-display-id-block_1 .slick-dots {
-        margin-top: 5px!important;     margin-bottom: 55px;
+        margin-top: 5px!important;  
+        padding: 1rem 0 3rem 0;
     }
     #homepage-header .row {margin-top: 5px;    margin-bottom: -80px;}
     .homepage-header-container {top: -5px;}
