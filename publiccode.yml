@@ -1,0 +1,117 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - document-management
+  - data-visualization
+dependsOn:
+  open:
+    - name: Ubuntu
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: 22.04 LTS
+    - name: Mysql
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: '8'
+    - name: Drupal
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: '9'
+    - name: Apache2
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: '2.4'
+    - name: PHP
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: '7.4'
+description:
+  it:
+    documentation: 'https://github.com/ComuneDiGenova/NOVA/tree/main/doc'
+    features:
+      - impresa marketplace innovazione startup pmi
+    genericName: Portale per le Imprese
+    longDescription: |
+      Nova è il market place che il Comune di Genova ha realizzato con i fondi
+      Pon Metro 2014 – 2020 in collaborazione con Liguria Digitale e con gli
+      stakeholder pubblici e privati della Città Metropolitana di Genova per
+      rendere accessibili con un click tutti i servizi necessari alla creazione
+      ed innovazione d’impresa.
+
+
+      Nell’ecosistema digitale sarete orientati nella scelta di servizi per
+      essere ancora più competitivi nei settori strategici della Città di
+      Genova: innovazione tecnologica, industria creativa, turismo sostenibile.
+      Il sistema di e-commerce di Nova vi permette di selezionare e accedere in
+      tempo reale a tutti i servizi fruibili e resi disponibili dagli
+      stakeholder aderenti al Progetto.
+
+
+      Nella sezione Vetrina delle Imprese potete accreditare con il vostro spid
+      la vostra azienda iscritta nel Registro delle imprese innovative della
+      Camera di Commercio per valorizzare e condividere i vostri prodotti,
+      servizi, progetti e tecnologie più all’avanguardia.
+
+
+      Se sei un futuro imprenditore, hai una PMI Innovativa, una Spin off, una
+      SIAVS o una grande impresa puoi incrementare il tuo business, attivare
+      network e sinergie di co-produzione con altre organizzazioni,
+      aggiornandoti sulle sezioni partecipative di Bacheca e Magazine. Il
+      sistema è stata realizzato dall'impresa [BBS
+      S.r.l.](http://www.bbsitalia.com/)
+
+
+      Link alle pagine relative al progetto:
+
+
+      [Ponmetro Comune di Genova](https://smart.comune.genova.it/ponmetro)
+    shortDescription: |-
+      Market place realizzato dal Comune di Genova per rendere accessibili i
+      servizi necessari alla creazione ed innovazione d'impresa.
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: true
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: true
+    pagopa: false
+    spid: true
+  riuso:
+    codiceIPA: c_d969
+legal:
+  license: GPL-3.0-or-later
+  repoOwner: Comune di Genova
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: true
+maintenance:
+  contacts:
+    - email: info@bbsitalia.com
+      name: BBS S.r.l.
+      phone: '+39030657018'
+  contractors:
+    - name: BBS S.r.l.
+      until: '2025-03-03'
+      website: 'https://www.bbsitalia.com'
+  type: contract
+name: NOVA
+platforms:
+  - web
+releaseDate: '2023-03-01'
+softwareType: standalone/web
+softwareVersion: 1.0.0
+url: 'https://github.com/ComuneDiGenova/NOVA'
